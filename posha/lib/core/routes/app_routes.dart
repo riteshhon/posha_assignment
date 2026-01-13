@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:posha/screens/home.dart';
+import 'package:posha/screens/home/home.dart';
 import 'package:posha/screens/recipe_list/recipe_list.dart';
 import 'package:posha/screens/recipe_favourite/recipe_favourite.dart';
 import 'package:posha/screens/recipe_details/recipe_details.dart';
