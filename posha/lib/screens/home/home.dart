@@ -57,42 +57,43 @@ class _HomeView extends StatelessWidget {
                 backgroundColor: Colors.transparent,
                 selectedItemColor: AppColors.primary,
                 unselectedItemColor: AppColors.textSecondary,
-                selectedFontSize: 12.sp,
-                unselectedFontSize: 12.sp,
+                selectedFontSize: 11.sp,
+                unselectedFontSize: 11.sp,
                 selectedLabelStyle: TextStyle(
-                  fontSize: 12.sp,
+                  fontSize: 11.sp,
                   fontWeight: FontWeight.w600,
                   letterSpacing: 0.2,
                 ),
                 unselectedLabelStyle: TextStyle(
-                  fontSize: 12.sp,
+                  fontSize: 11.sp,
                   fontWeight: FontWeight.normal,
                   letterSpacing: 0.2,
                 ),
                 elevation: 0,
                 showSelectedLabels: true,
                 showUnselectedLabels: true,
-                iconSize: 24.sp,
+                iconSize: 20.h,
+
                 items: [
                   BottomNavigationBarItem(
                     icon: Padding(
                       padding: EdgeInsets.only(bottom: 4.h),
-                      child: Icon(Icons.restaurant_menu, size: 24.sp),
+                      child: Icon(Icons.restaurant_menu, size: 20.h),
                     ),
                     activeIcon: Padding(
                       padding: EdgeInsets.only(bottom: 4.h),
-                      child: Icon(Icons.restaurant_menu, size: 26.sp),
+                      child: Icon(Icons.restaurant_menu, size: 20.h),
                     ),
                     label: 'Recipes',
                   ),
                   BottomNavigationBarItem(
                     icon: Padding(
                       padding: EdgeInsets.only(bottom: 4.h),
-                      child: Icon(Icons.favorite_border, size: 24.sp),
+                      child: Icon(Icons.favorite_border, size: 20.h),
                     ),
                     activeIcon: Padding(
                       padding: EdgeInsets.only(bottom: 4.h),
-                      child: Icon(Icons.favorite, size: 26.sp),
+                      child: Icon(Icons.favorite, size: 20.h),
                     ),
                     label: 'Favourites',
                   ),
