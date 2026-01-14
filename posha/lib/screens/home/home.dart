@@ -7,8 +7,8 @@ import 'package:posha/screens/home/bloc/home_bloc.dart';
 import 'package:posha/screens/home/bloc/home_event.dart';
 import 'package:posha/screens/home/bloc/home_state.dart';
 import 'package:posha/screens/recipe_list/recipe_list.dart';
-import 'package:posha/screens/recipe_favourite/bloc/favorites_bloc.dart';
-import 'package:posha/screens/recipe_favourite/bloc/favorites_event.dart';
+import 'package:posha/screens/recipe_favourite/bloc/favourites_bloc.dart';
+import 'package:posha/screens/recipe_favourite/bloc/favourites_event.dart';
 import 'package:posha/screens/recipe_favourite/recipe_favourite.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -20,8 +20,9 @@ class HomeScreen extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => HomeBloc()),
         BlocProvider(
-          create: (context) => FavoritesBloc(repository: RecipeRepository())
-            ..add(const FavoritesInitialized()),
+          create: (context) =>
+              FavoritesBloc(repository: RecipeRepository())
+                ..add(const FavoritesInitialized()),
         ),
       ],
       child: const _HomeView(),

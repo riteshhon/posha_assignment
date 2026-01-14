@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:posha/core/theme/app_colors.dart';
-import 'package:posha/screens/recipe_favourite/bloc/favorites_bloc.dart';
-import 'package:posha/screens/recipe_favourite/bloc/favorites_event.dart';
-import 'package:posha/screens/recipe_favourite/bloc/favorites_state.dart';
+import 'package:posha/screens/recipe_favourite/bloc/favourites_bloc.dart';
+import 'package:posha/screens/recipe_favourite/bloc/favourites_event.dart';
+import 'package:posha/screens/recipe_favourite/bloc/favourites_state.dart';
 
 /// Animated Favorite Toggle Button
 class FavoriteButton extends StatelessWidget {

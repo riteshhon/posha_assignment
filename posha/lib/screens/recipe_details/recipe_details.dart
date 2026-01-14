@@ -5,13 +5,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:posha/core/theme/app_colors.dart';
 import 'package:posha/data/models/recipe_model.dart';
 import 'package:posha/data/repository/recipe_repository.dart';
-import 'package:posha/screens/recipe_favourite/bloc/favorites_bloc.dart';
-import 'package:posha/screens/recipe_favourite/bloc/favorites_event.dart';
-import 'package:posha/screens/recipe_favourite/bloc/favorites_state.dart';
+import 'package:posha/screens/recipe_favourite/bloc/favourites_bloc.dart';
+import 'package:posha/screens/recipe_favourite/bloc/favourites_event.dart';
+import 'package:posha/screens/recipe_favourite/bloc/favourites_state.dart';
 import 'package:posha/screens/recipe_details/bloc/recipe_details_bloc.dart';
 import 'package:posha/screens/recipe_details/bloc/recipe_details_event.dart';
 import 'package:posha/screens/recipe_details/bloc/recipe_details_state.dart';
-import 'package:posha/screens/recipe_details/widget/favorite_button.dart';
+import 'package:posha/screens/recipe_details/widget/favourite_button.dart';
 import 'package:posha/screens/recipe_details/widget/image_zoom_viewer.dart';
 import 'package:posha/screens/recipe_details/widget/recipe_details_tabs.dart';
 

@@ -2,8 +2,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:posha/core/services/favorites_service.dart';
 import 'package:posha/data/models/recipe_model.dart';
 import 'package:posha/data/repository/recipe_repository.dart';
-import 'package:posha/screens/recipe_favourite/bloc/favorites_event.dart';
-import 'package:posha/screens/recipe_favourite/bloc/favorites_state.dart';
+import 'package:posha/screens/recipe_favourite/bloc/favourites_event.dart';
+import 'package:posha/screens/recipe_favourite/bloc/favourites_state.dart';
 
 /// Unified Favorites BLoC
 /// Manages both favorite IDs and full recipe data
