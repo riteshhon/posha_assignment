@@ -49,6 +49,22 @@ dependencies:
   # Shimmer effect for loading skeletons
   shimmer: ^3.0.0
 
+  # Image caching for offline support
+  cached_network_image: ^3.3.1
+
+  # YouTube video player
+  youtube_player_flutter: ^9.0.0
+  flutter_inappwebview: ^6.1.5
+
+  # Shared preferences for persistence
+  shared_preferences: ^2.2.2
+
+  # Image zoom viewer
+  photo_view: ^0.14.0
+
+  # URL launcher for opening YouTube links
+  url_launcher: ^6.2.5
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

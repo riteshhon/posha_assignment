@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:posha/data/models/recipe_model.dart';
 import 'package:posha/screens/home/home.dart';
 import 'package:posha/screens/recipe_list/recipe_list.dart';
 import 'package:posha/screens/recipe_favourite/recipe_favourite.dart';
@@ -47,7 +48,7 @@ class AppRouteGenerator {
           return MaterialPageRoute(
             builder: (context) => RecipeDetailsScreen(
               recipeId: args['recipeId'] as String?,
-              recipe: args['recipe'] as dynamic,
+              recipe: args['recipe'] as RecipeModel?,
             ),
             settings: settings,
           );
