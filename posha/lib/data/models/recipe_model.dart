@@ -210,6 +210,10 @@ class RecipeResponse {
           .toList(),
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {'meals': meals.map((meal) => meal.toJson()).toList()};
+  }
 }
 
 /// Recipe Summary Response - Wrapper for filter responses
@@ -230,6 +234,10 @@ class RecipeSummaryResponse {
           .map((meal) => RecipeSummaryModel.fromJson(meal))
           .toList(),
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {'meals': meals.map((meal) => meal.toJson()).toList()};
   }
 }
 
@@ -252,6 +260,12 @@ class CategoryResponse {
           .toList(),
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'categories': categories.map((category) => category.toJson()).toList(),
+    };
+  }
 }
 
 /// Area Response - Wrapper for areas list response
@@ -272,5 +286,9 @@ class AreaResponse {
           .map((area) => AreaModel.fromJson(area))
           .toList(),
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {'meals': meals.map((area) => area.toJson()).toList()};
   }
 }
