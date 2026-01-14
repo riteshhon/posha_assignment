@@ -16,9 +16,9 @@ class FavoriteButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<FavoritesBloc, FavoritesState>(
       builder: (context, state) {
-        final isFavorite = state is FavoritesLoaded
-            ? state.isFavorite(recipeId)
-            : false;
+        final isFavorite =
+            (state is FavoritesLoaded && state.isFavorite(recipeId)) ||
+            (state is FavoriteRecipesLoaded && state.isFavorite(recipeId));
 
         return AnimatedSwitcher(
           duration: const Duration(milliseconds: 300),

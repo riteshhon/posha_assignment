@@ -56,8 +56,9 @@ dependencies:
   youtube_player_flutter: ^9.0.0
   flutter_inappwebview: ^6.1.5
 
-  # Shared preferences for persistence
-  shared_preferences: ^2.2.2
+  # Hive for local database
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
 
   # Image zoom viewer
   photo_view: ^0.14.0

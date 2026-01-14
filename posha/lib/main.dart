@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:posha/core/services/favorites_service.dart';
 import 'package:posha/core/theme/app_theme.dart';
 import 'package:posha/core/routes/app_routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize Hive
+  await Hive.initFlutter();
+
+  // Initialize FavoritesService (opens Hive box)
+  await FavoritesService.init();
+
   runApp(const MyApp());
 }
 

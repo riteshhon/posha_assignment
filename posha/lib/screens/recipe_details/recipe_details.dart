@@ -7,6 +7,7 @@ import 'package:posha/data/models/recipe_model.dart';
 import 'package:posha/data/repository/recipe_repository.dart';
 import 'package:posha/screens/recipe_favourite/bloc/favorites_bloc.dart';
 import 'package:posha/screens/recipe_favourite/bloc/favorites_event.dart';
+import 'package:posha/screens/recipe_favourite/bloc/favorites_state.dart';
 import 'package:posha/screens/recipe_details/bloc/recipe_details_bloc.dart';
 import 'package:posha/screens/recipe_details/bloc/recipe_details_event.dart';
 import 'package:posha/screens/recipe_details/bloc/recipe_details_state.dart';
@@ -54,8 +55,24 @@ class _RecipeDetailsScreenState extends State<RecipeDetailsScreen>
               ),
         ),
         BlocProvider(
-          create: (context) =>
-              FavoritesBloc()..add(const FavoritesInitialized()),
+          create: (context) {
+            // Try to get existing FavoritesBloc from ancestor
+            try {
+              final existingBloc = BlocProvider.of<FavoritesBloc>(
+                context,
+                listen: false,
+              );
+              // If we got the existing bloc, make sure it's initialized
+              if (existingBloc.state is FavoritesInitial) {
+                existingBloc.add(const FavoritesInitialized());
+              }
+              return existingBloc;
+            } catch (_) {
+              // If not available in ancestor, create a new one
+              // This should rarely happen if navigation is from within the app
+              return FavoritesBloc()..add(const FavoritesInitialized());
+            }
+          },
         ),
       ],
       child: Scaffold(

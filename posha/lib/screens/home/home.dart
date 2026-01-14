@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:posha/core/theme/app_colors.dart';
+import 'package:posha/data/repository/recipe_repository.dart';
 import 'package:posha/screens/home/bloc/home_bloc.dart';
 import 'package:posha/screens/home/bloc/home_event.dart';
 import 'package:posha/screens/home/bloc/home_state.dart';
 import 'package:posha/screens/recipe_list/recipe_list.dart';
+import 'package:posha/screens/recipe_favourite/bloc/favorites_bloc.dart';
+import 'package:posha/screens/recipe_favourite/bloc/favorites_event.dart';
 import 'package:posha/screens/recipe_favourite/recipe_favourite.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,8 +16,14 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => HomeBloc(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => HomeBloc()),
+        BlocProvider(
+          create: (context) => FavoritesBloc(repository: RecipeRepository())
+            ..add(const FavoritesInitialized()),
+        ),
+      ],
       child: const _HomeView(),
     );
   }
@@ -31,11 +40,28 @@ class _HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<HomeBloc, HomeState>(
-        builder: (context, state) {
-          final currentIndex = state is HomeTabState ? state.currentIndex : 0;
-          return IndexedStack(index: currentIndex, children: _screens);
+      body: BlocListener<HomeBloc, HomeState>(
+        listenWhen: (previous, current) {
+          // Listen when tab changes to favorites tab (index 1)
+          if (current is HomeTabState && current.currentIndex == 1) {
+            if (previous is HomeTabState && previous.currentIndex != 1) {
+              return true; // Switching to favorites tab
+            }
+          }
+          return false;
         },
+        listener: (context, state) {
+          // When switching to favorites tab, refresh the favorites list
+          if (state is HomeTabState && state.currentIndex == 1) {
+            context.read<FavoritesBloc>().add(const FavoriteRecipesRefreshed());
+          }
+        },
+        child: BlocBuilder<HomeBloc, HomeState>(
+          builder: (context, state) {
+            final currentIndex = state is HomeTabState ? state.currentIndex : 0;
+            return IndexedStack(index: currentIndex, children: _screens);
+          },
+        ),
       ),
       bottomNavigationBar: BlocBuilder<HomeBloc, HomeState>(
         builder: (context, state) {
