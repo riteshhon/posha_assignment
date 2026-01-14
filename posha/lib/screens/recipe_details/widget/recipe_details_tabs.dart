@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:posha/core/constants/app_strings.dart';
 import 'package:posha/core/theme/app_colors.dart';
 import 'package:posha/data/models/recipe_model.dart';
 import 'package:posha/screens/recipe_details/widget/youtube_player_widget.dart';
@@ -41,7 +42,7 @@ class _OverviewTab extends StatelessWidget {
       cards.add(
         _InfoCard(
           icon: Icons.category,
-          label: 'Category',
+          label: AppStrings.category,
           value: recipe.category!,
         ),
       );
@@ -49,7 +50,7 @@ class _OverviewTab extends StatelessWidget {
 
     if (recipe.area != null) {
       cards.add(
-        _InfoCard(icon: Icons.public, label: 'Cuisine', value: recipe.area!),
+        _InfoCard(icon: Icons.public, label: AppStrings.cuisine, value: recipe.area!),
       );
     }
 
@@ -57,8 +58,8 @@ class _OverviewTab extends StatelessWidget {
       cards.add(
         _InfoCard(
           icon: Icons.restaurant,
-          label: 'Ingredients',
-          value: '${recipe.ingredients.length} items',
+          label: AppStrings.ingredients,
+          value: '${recipe.ingredients.length} ${AppStrings.items}',
         ),
       );
     }
@@ -90,7 +91,7 @@ class _OverviewTab extends StatelessWidget {
           // Info Cards Section
           if (recipe.category != null || recipe.area != null) ...[
             Text(
-              'Recipe Info',
+              AppStrings.recipeInfo,
               style: TextStyle(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w600,
@@ -104,7 +105,7 @@ class _OverviewTab extends StatelessWidget {
           // YouTube Video
           if (recipe.youtubeUrl != null && recipe.youtubeUrl!.isNotEmpty) ...[
             Text(
-              'Video Tutorial',
+              AppStrings.videoTutorial,
               style: TextStyle(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w600,
@@ -142,7 +143,7 @@ class _IngredientsTab extends StatelessWidget {
               ),
               SizedBox(height: 16.h),
               Text(
-                'No ingredients available',
+                AppStrings.noIngredientsAvailable,
                 style: TextStyle(
                   fontSize: 16.sp,
                   color: AppColors.textSecondary,
@@ -342,7 +343,7 @@ class _InstructionsTab extends StatelessWidget {
               ),
               SizedBox(height: 16.h),
               Text(
-                'No instructions available',
+                AppStrings.noInstructionsAvailable,
                 style: TextStyle(
                   fontSize: 16.sp,
                   color: AppColors.textSecondary,

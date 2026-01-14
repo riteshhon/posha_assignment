@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:posha/core/constants/app_strings.dart';
 import 'package:posha/core/theme/app_colors.dart';
 import 'package:posha/screens/recipe_list/bloc/recipe_list_bloc.dart';
 import 'package:posha/screens/recipe_list/bloc/recipe_list_event.dart';
@@ -114,7 +115,7 @@ class _FilterPanel extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             _FilterSection(
-                              title: 'Categories',
+                              title: AppStrings.filterByCategory,
                               icon: Icons.category,
                               items: state.categories,
                               selectedItem: state.selectedCategory,
@@ -126,7 +127,7 @@ class _FilterPanel extends StatelessWidget {
                             ),
                             SizedBox(height: 20.h),
                             _FilterSection(
-                              title: 'Cuisine Areas',
+                              title: AppStrings.filterByArea,
                               icon: Icons.public,
                               items: state.areas,
                               selectedItem: state.selectedArea,
@@ -178,7 +179,7 @@ class _FilterPanelHeader extends StatelessWidget {
           SizedBox(width: 8.w),
           Expanded(
             child: Text(
-              'Filters',
+              AppStrings.filter,
               style: TextStyle(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w600,
@@ -243,7 +244,7 @@ class _FilterSection extends StatelessWidget {
           runSpacing: 6.h,
           children: [
             _FilterChip(
-              label: 'All',
+              label: AppStrings.all,
               isSelected: selectedItem == null,
               onTap: () => onItemSelected(null),
             ),
@@ -275,7 +276,7 @@ class _FilterPanelFooter extends StatelessWidget {
         width: double.infinity,
         child: OutlinedButton.icon(
           icon: Icon(Icons.clear_all, size: 16.sp),
-          label: Text('Clear All', style: TextStyle(fontSize: 12.sp)),
+          label: Text(AppStrings.clearAll, style: TextStyle(fontSize: 12.sp)),
           style: OutlinedButton.styleFrom(
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 5.h),
           ),

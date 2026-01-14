@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:posha/core/constants/app_strings.dart';
 import 'package:posha/core/services/favorites_service.dart';
 import 'package:posha/core/theme/app_theme.dart';
 import 'package:posha/core/routes/app_routes.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp(
-          title: 'Posha',
+          title: AppStrings.appName,
           debugShowCheckedModeBanner: false,
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:posha/core/constants/app_strings.dart';
 import 'package:posha/core/routes/navigation_helper.dart';
 import 'package:posha/core/theme/app_colors.dart';
 import 'package:posha/screens/recipe_favourite/bloc/favourites_bloc.dart';
@@ -32,7 +33,10 @@ class _RecipeFavouriteScreenState extends State<RecipeFavouriteScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Favourite Recipes', style: TextStyle(fontSize: 16.sp)),
+        title: Text(
+          AppStrings.favouriteRecipes,
+          style: TextStyle(fontSize: 16.sp),
+        ),
         backgroundColor: AppColors.surface,
         elevation: 0,
         scrolledUnderElevation: 0,
@@ -137,7 +141,7 @@ class _FavoriteRecipesContent extends StatelessWidget {
             Icon(Icons.error_outline, size: 64.sp, color: AppColors.error),
             SizedBox(height: 16.h),
             Text(
-              'Error',
+              AppStrings.error,
               style: TextStyle(
                 fontSize: 20.sp,
                 fontWeight: FontWeight.w600,
@@ -157,7 +161,7 @@ class _FavoriteRecipesContent extends StatelessWidget {
                   const FavoriteRecipesRefreshed(),
                 );
               },
-              child: const Text('Retry'),
+              child: const Text(AppStrings.retry),
             ),
           ],
         ),
@@ -179,7 +183,7 @@ class _FavoriteRecipesContent extends StatelessWidget {
             ),
             SizedBox(height: 16.h),
             Text(
-              'No Favorites Yet',
+              AppStrings.noFavoritesYet,
               style: TextStyle(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w600,
@@ -188,7 +192,7 @@ class _FavoriteRecipesContent extends StatelessWidget {
             ),
             SizedBox(height: 8.h),
             Text(
-              'Start adding recipes to your favorites\nby tapping the heart icon',
+              AppStrings.startAddingRecipesToFavorites,
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 12.sp, color: AppColors.textSecondary),
             ),

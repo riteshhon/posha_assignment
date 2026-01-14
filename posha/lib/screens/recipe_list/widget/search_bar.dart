@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:posha/core/constants/app_strings.dart';
 import 'package:posha/core/theme/app_colors.dart';
 import 'package:posha/screens/recipe_list/bloc/recipe_list_bloc.dart';
 import 'package:posha/screens/recipe_list/bloc/recipe_list_event.dart';
@@ -41,7 +42,7 @@ class SearchBarWidget extends StatelessWidget {
                 controller: controller,
                 style: TextStyle(fontSize: 14.sp),
                 decoration: InputDecoration(
-                  hintText: 'Search recipes...',
+                  hintText: AppStrings.searchHint,
                   hintStyle: TextStyle(fontSize: 14.sp),
                   prefixIcon: Icon(Icons.search, size: 20.sp),
                   suffixIcon: Row(
@@ -135,7 +136,7 @@ class _FilterIconButton extends StatelessWidget {
       ),
       padding: EdgeInsets.zero,
       constraints: BoxConstraints(minWidth: 28.w, minHeight: 28.h),
-      tooltip: 'Filters',
+      tooltip: AppStrings.tooltipFilter,
       onPressed: () {
         context.read<RecipeListBloc>().add(const RecipeListFilterPanelOpened());
       },
@@ -184,7 +185,7 @@ class _SortButton extends StatelessWidget {
         ),
         padding: EdgeInsets.zero,
         constraints: BoxConstraints(minWidth: 32.w, minHeight: 32.h),
-        tooltip: 'Sort',
+        tooltip: AppStrings.tooltipSort,
         itemBuilder: (context) => [
           PopupMenuItem(
             value: RecipeListSortType.none,
@@ -195,7 +196,7 @@ class _SortButton extends StatelessWidget {
                 else
                   SizedBox(width: 16.w),
                 SizedBox(width: 8.w),
-                const Text('None'),
+                const Text(AppStrings.sortNone),
               ],
             ),
           ),
@@ -208,7 +209,7 @@ class _SortButton extends StatelessWidget {
                 else
                   SizedBox(width: 16.w),
                 SizedBox(width: 8.w),
-                const Text('Name (A-Z)'),
+                const Text(AppStrings.sortAZ),
               ],
             ),
           ),
@@ -221,7 +222,7 @@ class _SortButton extends StatelessWidget {
                 else
                   SizedBox(width: 16.w),
                 SizedBox(width: 8.w),
-                const Text('Name (Z-A)'),
+                const Text(AppStrings.sortZA),
               ],
             ),
           ),

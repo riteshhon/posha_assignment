@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:posha/core/constants/app_strings.dart';
 import 'package:posha/core/theme/app_colors.dart';
 import 'package:posha/data/models/recipe_model.dart';
 import 'package:posha/data/repository/recipe_repository.dart';
@@ -100,7 +101,10 @@ class _RecipeDetailsScreenState extends State<RecipeDetailsScreen>
   Widget _buildLoadingView() {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Recipe Details', style: TextStyle(fontSize: 16.sp)),
+        title: Text(
+          AppStrings.recipeDetails,
+          style: TextStyle(fontSize: 16.sp),
+        ),
         backgroundColor: AppColors.surface,
         elevation: 0,
       ),
@@ -111,7 +115,7 @@ class _RecipeDetailsScreenState extends State<RecipeDetailsScreen>
             CircularProgressIndicator(color: AppColors.primary),
             SizedBox(height: 16.h),
             Text(
-              'Loading recipe...',
+              AppStrings.loadingRecipe,
               style: TextStyle(fontSize: 14.sp, color: AppColors.textSecondary),
             ),
           ],
@@ -123,7 +127,10 @@ class _RecipeDetailsScreenState extends State<RecipeDetailsScreen>
   Widget _buildErrorView(String message) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Recipe Details', style: TextStyle(fontSize: 16.sp)),
+        title: Text(
+          AppStrings.recipeDetails,
+          style: TextStyle(fontSize: 16.sp),
+        ),
         backgroundColor: AppColors.surface,
         elevation: 0,
       ),
@@ -136,7 +143,7 @@ class _RecipeDetailsScreenState extends State<RecipeDetailsScreen>
               Icon(Icons.error_outline, size: 64.sp, color: AppColors.error),
               SizedBox(height: 16.h),
               Text(
-                'Error',
+                AppStrings.error,
                 style: TextStyle(
                   fontSize: 20.sp,
                   fontWeight: FontWeight.w600,
@@ -162,7 +169,7 @@ class _RecipeDetailsScreenState extends State<RecipeDetailsScreen>
                     ),
                   );
                 },
-                child: const Text('Retry'),
+                child: const Text(AppStrings.retry),
               ),
             ],
           ),
@@ -190,7 +197,7 @@ class _RecipeDetailsScreenState extends State<RecipeDetailsScreen>
       expandedHeight: 0,
       floating: true,
       pinned: true,
-      title: Text('Recipe Details', style: TextStyle(fontSize: 16.sp)),
+      title: Text(AppStrings.recipeDetails, style: TextStyle(fontSize: 16.sp)),
       backgroundColor: AppColors.surface,
       surfaceTintColor: AppColors.surface,
       elevation: 0,
@@ -382,9 +389,9 @@ class _RecipeDetailsScreenState extends State<RecipeDetailsScreen>
             fontWeight: FontWeight.w500,
           ),
           tabs: const [
-            Tab(text: 'Overview'),
-            Tab(text: 'Ingredients'),
-            Tab(text: 'Instructions'),
+            Tab(text: AppStrings.overview),
+            Tab(text: AppStrings.ingredients),
+            Tab(text: AppStrings.instructions),
           ],
         ),
       ),

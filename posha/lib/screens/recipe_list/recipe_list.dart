@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:posha/core/constants/app_strings.dart';
 import 'package:posha/core/routes/navigation_helper.dart';
 import 'package:posha/core/theme/app_colors.dart';
 import 'package:posha/data/repository/recipe_repository.dart';
@@ -33,7 +34,7 @@ class _RecipeListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Recipes', style: TextStyle(fontSize: 16.sp)),
+        title: Text(AppStrings.recipes, style: TextStyle(fontSize: 16.sp)),
         backgroundColor: AppColors.surface,
         elevation: 0,
         scrolledUnderElevation: 0,
@@ -122,7 +123,7 @@ class _RecipeListContent extends StatelessWidget {
             Icon(Icons.error_outline, size: 64.sp, color: AppColors.error),
             SizedBox(height: 16.h),
             Text(
-              'Error',
+              AppStrings.error,
               style: TextStyle(
                 fontSize: 20.sp,
                 fontWeight: FontWeight.w600,
@@ -140,7 +141,7 @@ class _RecipeListContent extends StatelessWidget {
               onPressed: () {
                 context.read<RecipeListBloc>().add(const RecipeListRefreshed());
               },
-              child: const Text('Retry'),
+              child: const Text(AppStrings.retry),
             ),
           ],
         ),
@@ -158,7 +159,7 @@ class _RecipeListContent extends StatelessWidget {
             Icon(Icons.search_off, size: 64.sp, color: AppColors.textSecondary),
             SizedBox(height: 16.h),
             Text(
-              'No recipes found',
+              AppStrings.noRecipesFound,
               style: TextStyle(
                 fontSize: 20.sp,
                 fontWeight: FontWeight.w600,
@@ -167,7 +168,7 @@ class _RecipeListContent extends StatelessWidget {
             ),
             SizedBox(height: 8.h),
             Text(
-              'Try adjusting your search or filters',
+              AppStrings.tryAdjustingSearchOrFilters,
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 14.sp, color: AppColors.textSecondary),
             ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:posha/core/constants/app_strings.dart';
 import 'package:posha/core/theme/app_colors.dart';
 import 'package:posha/data/repository/recipe_repository.dart';
 import 'package:posha/screens/home/bloc/home_bloc.dart';
@@ -111,7 +112,7 @@ class _HomeView extends StatelessWidget {
                       padding: EdgeInsets.only(bottom: 4.h),
                       child: Icon(Icons.restaurant_menu, size: 20.h),
                     ),
-                    label: 'Recipes',
+                    label: AppStrings.recipes,
                   ),
                   BottomNavigationBarItem(
                     icon: Padding(
@@ -122,7 +123,7 @@ class _HomeView extends StatelessWidget {
                       padding: EdgeInsets.only(bottom: 4.h),
                       child: Icon(Icons.favorite, size: 20.h),
                     ),
-                    label: 'Favourites',
+                    label: AppStrings.favourites,
                   ),
                 ],
               ),

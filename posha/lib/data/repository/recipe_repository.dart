@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:posha/core/constants/api_constants.dart';
+import 'package:posha/core/constants/app_strings.dart';
 import 'package:posha/data/models/recipe_model.dart';
 
 /// Recipe Repository
@@ -25,10 +26,10 @@ class RecipeRepository {
         final recipeResponse = RecipeResponse.fromJson(jsonData);
         return recipeResponse.meals;
       } else {
-        throw Exception('Failed to load recipes: ${response.statusCode}');
+        throw Exception('${AppStrings.errorLoadingRecipes}: ${response.statusCode}');
       }
     } catch (e) {
-      throw Exception('Error searching recipes: $e');
+      throw Exception('${AppStrings.errorSearchingRecipes}: $e');
     }
   }
 
@@ -47,10 +48,10 @@ class RecipeRepository {
         final recipeResponse = RecipeSummaryResponse.fromJson(jsonData);
         return recipeResponse.meals;
       } else {
-        throw Exception('Failed to load recipes: ${response.statusCode}');
+        throw Exception('${AppStrings.errorLoadingRecipes}: ${response.statusCode}');
       }
     } catch (e) {
-      throw Exception('Error filtering by area: $e');
+      throw Exception('${AppStrings.errorFilteringByArea}: $e');
     }
   }
 
@@ -71,10 +72,10 @@ class RecipeRepository {
             ? recipeResponse.meals.first
             : null;
       } else {
-        throw Exception('Failed to load recipe: ${response.statusCode}');
+        throw Exception('${AppStrings.errorLoadingRecipe}: ${response.statusCode}');
       }
     } catch (e) {
-      throw Exception('Error getting recipe: $e');
+      throw Exception('${AppStrings.errorGettingRecipe}: $e');
     }
   }
 
@@ -90,10 +91,10 @@ class RecipeRepository {
         final categoryResponse = CategoryResponse.fromJson(jsonData);
         return categoryResponse.categories;
       } else {
-        throw Exception('Failed to load categories: ${response.statusCode}');
+        throw Exception('${AppStrings.errorLoadingCategories}: ${response.statusCode}');
       }
     } catch (e) {
-      throw Exception('Error getting categories: $e');
+      throw Exception('${AppStrings.errorGettingCategories}: $e');
     }
   }
 
@@ -112,10 +113,10 @@ class RecipeRepository {
         final areaResponse = AreaResponse.fromJson(jsonData);
         return areaResponse.meals;
       } else {
-        throw Exception('Failed to load areas: ${response.statusCode}');
+        throw Exception('${AppStrings.errorLoadingAreas}: ${response.statusCode}');
       }
     } catch (e) {
-      throw Exception('Error getting areas: $e');
+      throw Exception('${AppStrings.errorGettingAreas}: $e');
     }
   }
 
@@ -134,10 +135,10 @@ class RecipeRepository {
         final recipeResponse = RecipeSummaryResponse.fromJson(jsonData);
         return recipeResponse.meals;
       } else {
-        throw Exception('Failed to load recipes: ${response.statusCode}');
+        throw Exception('${AppStrings.errorLoadingRecipes}: ${response.statusCode}');
       }
     } catch (e) {
-      throw Exception('Error filtering by category: $e');
+      throw Exception('${AppStrings.errorFilteringByCategory}: $e');
     }
   }
 
@@ -154,7 +155,7 @@ class RecipeRepository {
       // Filter out null values and return the list
       return results.whereType<RecipeModel>().toList();
     } catch (e) {
-      throw Exception('Error getting full recipes: $e');
+      throw Exception('${AppStrings.errorGettingFullRecipes}: $e');
     }
   }
 }

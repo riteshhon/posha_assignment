@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:posha/core/constants/app_strings.dart';
 import 'package:posha/core/services/favorites_service.dart';
 import 'package:posha/data/models/recipe_model.dart';
 import 'package:posha/data/repository/recipe_repository.dart';
@@ -54,7 +55,7 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
   Future<void> _loadFavoriteRecipes(Emitter<FavoritesState> emit) async {
     final repository = _repository;
     if (repository == null) {
-      emit(const FavoritesError('Repository not provided'));
+      emit(const FavoritesError(AppStrings.repositoryNotProvided));
       return;
     }
 

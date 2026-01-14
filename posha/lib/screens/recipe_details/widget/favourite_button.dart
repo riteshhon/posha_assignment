@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:posha/core/constants/app_strings.dart';
 import 'package:posha/core/theme/app_colors.dart';
 import 'package:posha/screens/recipe_favourite/bloc/favourites_bloc.dart';
 import 'package:posha/screens/recipe_favourite/bloc/favourites_event.dart';
@@ -35,7 +36,9 @@ class FavoriteButton extends StatelessWidget {
             onPressed: () {
               context.read<FavoritesBloc>().add(FavoriteToggled(recipeId));
             },
-            tooltip: isFavorite ? 'Remove from favorites' : 'Add to favorites',
+            tooltip: isFavorite
+                ? AppStrings.removeFromFavorites
+                : AppStrings.addToFavorites,
           ),
         );
       },

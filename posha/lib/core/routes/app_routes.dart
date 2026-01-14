@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:posha/core/constants/app_strings.dart';
 import 'package:posha/data/models/recipe_model.dart';
 import 'package:posha/screens/home/home.dart';
 import 'package:posha/screens/recipe_list/recipe_list.dart';
@@ -62,7 +63,7 @@ class AppRouteGenerator {
         // Handle unknown routes
         return MaterialPageRoute(
           builder: (_) => Scaffold(
-            appBar: AppBar(title: const Text('Page Not Found')),
+            appBar: AppBar(title: const Text(AppStrings.pageNotFound)),
             body: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -73,7 +74,7 @@ class AppRouteGenerator {
                     builder: (context) => Column(
                       children: [
                         Text(
-                          'Page not found',
+                          AppStrings.pageNotFound,
                           style: Theme.of(context).textTheme.headlineSmall,
                         ),
                         const SizedBox(height: 8),
